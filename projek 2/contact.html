@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kontak - Toko Eka Jaya</title>
+    <style>
+        /* Basic styling for the header and navigation */
+        header {
+            background-color: #333;
+            padding: 10px 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger-menu .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        /* Media query for mobile screens */
+        @media screen and (max-width: 3000px){
+            .nav-links {
+                display: none;
+                /* Awalnya sembunyikan menu */
+                flex-direction: column;
+                position: absolute;
+                /* Agar menu muncul di bawah hamburger */
+                top: 121px;
+                /* Menentukan jarak menu dari atas */
+                left: 0;
+                width: 100%;
+                background-color: #333;
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .nav-links a {
+                padding: 10px;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+
+            /* Menampilkan menu jika .show ditambahkan */
+            .nav-links.show {
+                display: flex;
+            }
+        }
+
+        /* Media query for mobile screens */
+        @media screen and (max-width: 567px) {
+            .nav-links {
+                display: none;
+                /* Awalnya sembunyikan menu */
+                flex-direction: column;
+                position: absolute;
+                /* Agar menu muncul di bawah hamburger */
+                top: 200px;
+                /* Menentukan jarak menu dari atas */
+                left: 0;
+                width: 100%;
+                background-color: #333;
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .nav-links a {
+                padding: 10px;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+
+            /* Menampilkan menu jika .show ditambahkan */
+            .nav-links.show {
+                display: flex;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .container {
+            width: 85%;
+            margin: 40px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .about h2 {
+            font-size: 32px;
+            color: #2c3e50;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .about span {
+            font-weight: bold;
+            color: #16a085;
+        }
+
+        .service-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .service-item {
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item img {
+            max-width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .service-item h3 {
+            font-size: 22px;
+            color: #2c3e50;
+        }
+
+        .service-item p {
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .contact-btn {
+            background-color: #16a085;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #1abc9c;
+        }
+
+        .testimonial {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .testimonial h2 {
+            font-size: 32px;
+            color: #2c3e50;
+        }
+
+        .testimonial p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.8;
+            margin-top: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial .quote {
+            font-size: 28px;
+            color: #16a085;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-footer {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-links" id="nav-links">
+                <a href="home.html">Home</a>
+                <a href="contact.html">Contact</a>
+                <a href="about.html">About me</a>
+            </div>
+        </nav>
+        <h1>Kontak Toko Eka Jaya</h1>
+    </header>
+
+    <div class="container">
+        <div class="contact-info">
+            <h2>Hubungi Kami</h2>
+            <p>Untuk pertanyaan atau informasi lebih lanjut, Anda bisa menghubungi kami melalui form di bawah ini atau
+                langsung menghubungi kami lewat kontak berikut:</p>
+            <p><strong>Alamat:</strong> Jalan P. Senopati, Dagaran, Palbapang, Kec. Bantul, Kabupaten Bantul, Daerah
+                Istimewa Yogyakarta 55713, Indonesia.</p>
+            <p><strong>Telepon:</strong> 0858-7626-7602</p>
+            <p><strong>Email:</strong> tokoekajaya@gmail.com</p>
+        </div>
+
+        <div class="form-container">
+            <h2>Formulir Kontak</h2>
+            <form action="submit_form.php" method="post">
+                <label for="name">Nama Lengkap:</label>
+                <input type="text" id="name" name="name" required placeholder="Masukkan nama lengkap Anda">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Masukkan alamat email Anda">
+
+                <label for="subject">Subjek:</label>
+                <input type="text" id="subject" name="subject" required placeholder="Masukkan subjek pesan">
+
+                <label for="message">Pesan:</label>
+                <textarea id="message" name="message" required placeholder="Tulis pesan Anda di sini..."></textarea>
+
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Toko Eka Jaya - Semua hak dilindungi.</p>
+    </footer>
+
+    <script>
+        // Toggle the navigation menu when hamburger is clicked
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+    </script>
+</body>
+
+</html>
